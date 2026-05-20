@@ -33,13 +33,13 @@ export function Navbar() {
 
   return (
     <header
-      className={` top-0 inset-x-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300  ${
         scrolled ? "glass-strong py-3" : "py-5 bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
         {/* <Logo /> */}
-        <Image src={Logo} alt="Logo" className="h-10 w-10" />
+        <Image src={Logo} alt="Logo" className="h-12 w-10" />
         <nav className="hidden md:flex items-center gap-1">
           {links.map((l) => {
             const active = pathname === l.to;
@@ -59,7 +59,7 @@ export function Navbar() {
           })}
         </nav>
         <div className="hidden md:block">
-          <Button asChild variant="ghost" size="sm">
+          <Button asChild variant="hero" size="sm">
             <Link href="/contact">Get Started</Link>
           </Button>
         </div>
@@ -89,7 +89,7 @@ export function Navbar() {
                   {l.label}
                 </Link>
               ))}
-              <Button asChild variant="ghost" className="mt-2">
+              <Button asChild variant="hero" className="mt-2">
                 <Link href="/contact">Get Started</Link>
               </Button>
             </div>
