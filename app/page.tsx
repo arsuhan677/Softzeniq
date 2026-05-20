@@ -1,4 +1,5 @@
 import HeroSection from "@/components/home/HeroSection";
+import Service from "@/components/home/Service";
 import Stats from "@/components/home/Stats";
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
       {/* <h1 className="text-3xl font-bold underline">Hello world!</h1> */}
       <HeroSection />
       <Stats />
+      <Service />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { Reveal } from "./Revel";
+import { Reveal } from "../shared/Revel";
 
 export default function Stats() {
   const stats = [
