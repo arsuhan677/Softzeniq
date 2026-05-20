@@ -1,6 +1,8 @@
 import HeroSection from "@/components/home/HeroSection";
+import Portfolio from "@/components/home/Portfolio";
 import Service from "@/components/home/Service";
 import Stats from "@/components/home/Stats";
+import WhyChosseUs from "@/components/home/WhyChooseUs";
 
 export default function Home() {
   return (
@@ -9,6 +11,8 @@ export default function Home() {
       <HeroSection />
       <Stats />
       <Service />
+      <WhyChosseUs />
+      <Portfolio />
     </div>
   );
 }

@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import Logo from "../../public/images/logo.png";
+import Logo from "../../public/images/logo2.png";
 
 const links = [
   { to: "/", label: "Home" },
@@ -34,12 +34,14 @@ export function Navbar() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300  ${
-        scrolled ? "glass-strong py-3" : "py-5 bg-transparent"
+        scrolled ? "glass-strong py-3" : "py-4 bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
         {/* <Logo /> */}
-        <Image src={Logo} alt="Logo" className="h-12 w-10" />
+        <Link href="/" className="flex items-center h-12 w-22">
+          <Image src={Logo} alt="Softzeniq Logo" width={500} height={500} />
+        </Link>
         <nav className="hidden md:flex items-center gap-1">
           {links.map((l) => {
             const active = pathname === l.to;
