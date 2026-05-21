@@ -159,7 +159,7 @@ const CircuitBoard = ({ children }: { children: React.ReactNode }) => {
       }
 
       ctx.strokeStyle = "rgba(50, 50, 70, 0.3)";
-      ctx.lineWidth = 1;
+      ctx.lineWidth = 0.5;
       for (const path of paths) {
         if (!path.isActive) {
           const fromNode = nodes[path.from];
@@ -177,7 +177,7 @@ const CircuitBoard = ({ children }: { children: React.ReactNode }) => {
           const toNode = nodes[path.to];
 
           ctx.strokeStyle = `rgba(0, 200, 255, ${path.activationLevel * 0.2})`;
-          ctx.lineWidth = 3;
+          ctx.lineWidth = 2;
           ctx.beginPath();
           ctx.moveTo(fromNode.x, fromNode.y);
           ctx.lineTo(toNode.x, toNode.y);

@@ -1,4 +1,5 @@
 import { Check, EyeOff, Zap } from "lucide-react";
+import { SectionHeading } from "../shared/SectionHeading";
 
 export default function WhyChosseUs() {
   const comparisonData = [
@@ -31,19 +32,20 @@ export default function WhyChosseUs() {
     },
   ];
   return (
-    <section className="py-24 border-b border-color-border bg-[var(--color-secondary)]/50  text-center w-full">
+    <section className="py-12 sm:py-16 border-b border-color-border bg-[var(--color-secondary)]/50  text-center w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-xs font-mono uppercase text-brand-indigo font-bold tracking-widest">
-          Growth Economics
-        </p>
-        <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold font-display text-color-foreground">
-          E-Commerce Growth: Legacy vs. Owned Scale
-        </h2>
-        <p className="mt-4 text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-          Relying entirely on standard template scripts or restricted social
+        <SectionHeading
+          eyebrow="Growth Economics"
+          title={
+            <>
+              E-Commerce Growth:{" "}
+              <span className="text-gradient"> Legacy vs. Owned Scale</span>.
+            </>
+          }
+          description=" Relying entirely on standard template scripts or restricted social
           platform checkouts limits your branding authority and sales volume.
-          Here is how upgrading elevates your revenue.
-        </p>
+          Here is how upgrading elevates your revenue."
+        />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16">
           {/* Without Card */}

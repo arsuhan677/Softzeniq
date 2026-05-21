@@ -1,4 +1,6 @@
 import HeroSection from "@/components/home/HeroSection";
+import MarqueeService from "@/components/home/MarqueeService";
+import OurMethodology from "@/components/home/OurMethodology";
 import Portfolio from "@/components/home/Portfolio";
 import Service from "@/components/home/Service";
 import Stats from "@/components/home/Stats";
@@ -15,6 +17,8 @@ export default function Home() {
       <WhyChosseUs />
       <Portfolio />
       <Testimonial />
+      <OurMethodology />
+      <MarqueeService />
     </div>
   );
 }

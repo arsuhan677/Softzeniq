@@ -24,8 +24,8 @@ export default function Testimonial() {
     },
   ];
   return (
-    <section className="relative py-12 sm:py-16 bg-[var(--color-secondary)]/50 border-b border-[var(--border)]">
-      <div className="mx-auto px-5 sm:px-8">
+    <section className="py-12 sm:py-16 border-b border-color-border bg-[var(--color-secondary)]/50 text-center w-full">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <SectionHeading
           eyebrow="Testimonials"
           title={
