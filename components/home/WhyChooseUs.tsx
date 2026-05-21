@@ -31,15 +31,15 @@ export default function WhyChosseUs() {
     },
   ];
   return (
-    <section className="py-24 border-b border-[var(--color-border)] bg-[var(--color-secondary)]/50 dark:bg-[var(--sidebar)]/20 text-center w-full">
+    <section className="py-24 border-b border-color-border bg-[var(--color-secondary)]/50  text-center w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-xs font-mono uppercase text-[var(--brand-indigo)] dark:text-[var(--brand-blue)] font-bold tracking-widest">
+        <p className="text-xs font-mono uppercase text-brand-indigo font-bold tracking-widest">
           Growth Economics
         </p>
-        <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold font-display text-[var(--color-foreground)] dark:text-[var(--color-foreground)]">
+        <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold font-display text-color-foreground">
           E-Commerce Growth: Legacy vs. Owned Scale
         </h2>
-        <p className="mt-4 text-[var(--muted-foreground)] dark:text-[var(--muted-foreground)] max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+        <p className="mt-4 text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
           Relying entirely on standard template scripts or restricted social
           platform checkouts limits your branding authority and sales volume.
           Here is how upgrading elevates your revenue.
@@ -47,16 +47,16 @@ export default function WhyChosseUs() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16">
           {/* Without Card */}
-          <div className="bg-[var(--card)] dark:bg-[var(--card)] border border-[var(--border)] rounded-3xl p-8 text-left shadow-xs">
+          <div className="bg-card  border border-border rounded-3xl p-8 text-left shadow-xs">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="p-2.5 bg-[var(--destructive)]/10 dark:bg-[var(--destructive)]/15 text-[var(--destructive)] rounded-xl">
+              <div className="p-2.5 bg-destructive/10 text-destructive rounded-xl">
                 <EyeOff className="w-5.5 h-5.5" />
               </div>
               <div>
-                <h4 className="text-lg font-bold text-[var(--color-foreground)] dark:text-[var(--card-foreground)] font-display">
+                <h4 className="text-lg font-bold text-color-foregroundfont-display">
                   Legacy, Broken Setup
                 </h4>
-                <p className="text-xs text-[var(--muted-foreground)]">
+                <p className="text-xs text-muted-foreground">
                   Stagnant and unstable e-commerce frameworks
                 </p>
               </div>
@@ -64,14 +64,11 @@ export default function WhyChosseUs() {
 
             <div className="space-y-4">
               {comparisonData.map((item) => (
-                <div
-                  key={item.title}
-                  className="border-b border-[var(--border)] dark:border-[var(--border)]/40 pb-3.5"
-                >
-                  <h5 className="text-xs font-semibold text-[var(--color-foreground)] dark:text-[var(--card-foreground)] font-sans mb-1">
+                <div key={item.title} className="border-b border-border pb-3.5">
+                  <h5 className="text-xs font-semibold text-color-foreground font-sans mb-1">
                     {item.title}
                   </h5>
-                  <p className="text-xs text-[var(--muted-foreground)] dark:text-[var(--muted-foreground)] leading-relaxed font-sans">
+                  <p className="text-xs text-muted-foreground leading-relaxed font-sans">
                     {item.without}
                   </p>
                 </div>
@@ -81,7 +78,7 @@ export default function WhyChosseUs() {
 
           {/* With Card */}
           <div className="bg-linear-to-b from-brand-indigo/20 to-color-background border-2 border-[var(--brand-indigo)] rounded-3xl p-8 text-left shadow-xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 text-[10px] font-bold font-mono tracking-wider py-1 px-4 rounded-bl-xl uppercase bg-brand-indigo text-color">
+            <div className="absolute top-0 right-0 text-[10px] font-bold font-mono tracking-wider py-1 px-4 rounded-bl-xl uppercase bg-brand-indigo text-primary-foreground">
               Optimized Engine
             </div>
 

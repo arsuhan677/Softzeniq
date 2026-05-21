@@ -2,6 +2,7 @@ import HeroSection from "@/components/home/HeroSection";
 import Portfolio from "@/components/home/Portfolio";
 import Service from "@/components/home/Service";
 import Stats from "@/components/home/Stats";
+import Testimonial from "@/components/home/Testimonial";
 import WhyChosseUs from "@/components/home/WhyChooseUs";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <Service />
       <WhyChosseUs />
       <Portfolio />
+      <Testimonial />
     </div>
   );
 }
