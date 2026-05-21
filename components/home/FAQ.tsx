@@ -58,7 +58,7 @@ export default function FAQ() {
     },
   ];
   return (
-    <div className="flex flex-col items-center text-center text-foreground px-3 py-12 sm:py-16 w-full">
+    <div className="flex flex-col items-center text-center bg-[var(--color-secondary)]/50 text-foreground px-3 py-12 sm:py-16 w-full">
       <SectionHeading
         eyebrow="FAQ"
         title={

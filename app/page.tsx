@@ -1,3 +1,4 @@
+import CTA from "@/components/home/CTA";
 import FAQ from "@/components/home/FAQ";
 import HeroSection from "@/components/home/HeroSection";
 import MarqueeService from "@/components/home/MarqueeService";
@@ -21,6 +22,7 @@ export default function Home() {
       <OurMethodology />
       <MarqueeService />
       <FAQ />
+      <CTA />
     </div>
   );
 }

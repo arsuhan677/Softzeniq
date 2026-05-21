@@ -2,6 +2,7 @@ import { Navbar } from "@/components/shared/Navbar";
 import type { Metadata } from "next";
 import "./globals.css";
 
+import Footer from "@/components/shared/Footer";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
@@ -34,6 +35,7 @@ export default function RootLayout({
         <Navbar />
 
         {children}
+        <Footer />
       </body>
     </html>
   );
