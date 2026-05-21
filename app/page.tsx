@@ -1,3 +1,4 @@
+import FAQ from "@/components/home/FAQ";
 import HeroSection from "@/components/home/HeroSection";
 import MarqueeService from "@/components/home/MarqueeService";
 import OurMethodology from "@/components/home/OurMethodology";
@@ -19,6 +20,7 @@ export default function Home() {
       <Testimonial />
       <OurMethodology />
       <MarqueeService />
+      <FAQ />
     </div>
   );
 }
