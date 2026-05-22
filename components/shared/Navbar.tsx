@@ -33,15 +33,16 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300  ${
-        scrolled ? "glass-strong py-3" : "py-4 bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "glass-strong py-3" : "py-2 sm:py-4 bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
+      <div className=" md:max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
         {/* <Logo /> */}
-        <Link href="/" className="flex items-center h-12 w-22">
+        <Link href="/" className="flex items-center h-10 w-16 md:h-12 md:w-22">
           <Image src={Logo} alt="Softzeniq Logo" width={500} height={500} />
         </Link>
+
         <nav className="hidden md:flex items-center gap-1">
           {links.map((l) => {
             const active = pathname === l.to;
@@ -61,8 +62,8 @@ export function Navbar() {
           })}
         </nav>
         <div className="hidden md:block">
-          <Button asChild variant="hero" size="sm">
-            <Link href="/contact">Get Started</Link>
+          <Button asChild variant="hero" size="lg">
+            <Link href="/contact">Start Your Project</Link>
           </Button>
         </div>
         <button
@@ -92,7 +93,7 @@ export function Navbar() {
                 </Link>
               ))}
               <Button asChild variant="hero" className="mt-2">
-                <Link href="/contact">Get Started</Link>
+                <Link href="/contact">Start Your Project</Link>
               </Button>
             </div>
           </motion.div>

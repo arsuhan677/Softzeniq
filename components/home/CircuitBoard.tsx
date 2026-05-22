@@ -176,14 +176,14 @@ const CircuitBoard = ({ children }: { children: React.ReactNode }) => {
           const fromNode = nodes[path.from];
           const toNode = nodes[path.to];
 
-          ctx.strokeStyle = `rgba(0, 200, 255, ${path.activationLevel * 0.2})`;
+          ctx.strokeStyle = `rgba(124, 58, 237, ${path.activationLevel * 0.2})`;
           ctx.lineWidth = 2;
           ctx.beginPath();
           ctx.moveTo(fromNode.x, fromNode.y);
           ctx.lineTo(toNode.x, toNode.y);
           ctx.stroke();
 
-          ctx.strokeStyle = `rgba(100, 220, 255, ${path.activationLevel})`;
+          ctx.strokeStyle = `rgba(124, 58, 237, ${path.activationLevel})`;
           ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.moveTo(fromNode.x, fromNode.y);
@@ -209,15 +209,15 @@ const CircuitBoard = ({ children }: { children: React.ReactNode }) => {
           );
           gradient.addColorStop(
             0,
-            `rgba(0, 200, 255, ${node.activationLevel})`,
+            `rgba(124, 58, 237, ${node.activationLevel})`,
           );
-          gradient.addColorStop(1, "rgba(0, 200, 255, 0)");
+          gradient.addColorStop(1, "rgba(124, 58, 237, 0)");
           ctx.fillStyle = gradient;
           ctx.beginPath();
           ctx.arc(node.x, node.y, node.size * 3, 0, Math.PI * 2);
           ctx.fill();
 
-          ctx.fillStyle = `rgba(100, 220, 255, ${node.activationLevel})`;
+          ctx.fillStyle = `rgba(124, 58, 237, ${node.activationLevel})`;
           ctx.beginPath();
           ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
           ctx.fill();
@@ -232,8 +232,8 @@ const CircuitBoard = ({ children }: { children: React.ReactNode }) => {
         mousePosition.y,
         150,
       );
-      gradient.addColorStop(0, "rgba(0, 200, 255, 0.1)");
-      gradient.addColorStop(1, "rgba(0, 200, 255, 0)");
+      gradient.addColorStop(0, "rgba(124, 58, 237, 0.1)");
+      gradient.addColorStop(1, "rgba(124, 58, 237, 0)");
       ctx.fillStyle = gradient;
       ctx.beginPath();
       ctx.arc(mousePosition.x, mousePosition.y, 150, 0, Math.PI * 2);

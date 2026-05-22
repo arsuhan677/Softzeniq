@@ -11,7 +11,7 @@ import WhyChosseUs from "@/components/home/WhyChooseUs";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center mt-18">
+    <div className="flex flex-col flex-1 items-center justify-center mt-14 sm:mt-18">
       {/* <h1 className="text-3xl font-bold underline">Hello world!</h1> */}
       <HeroSection />
       <Stats />

@@ -7,7 +7,7 @@ export default function CTA() {
   return (
     <div>
       {" "}
-      <section className="relative py-24">
+      <section className="relative py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
           <Reveal>
             <div className="relative rounded-[2rem] overflow-hidden p-10 sm:p-16 text-center bg-gradient-brand shadow-glow">
@@ -25,7 +25,7 @@ export default function CTA() {
                   className="bg-background text-foreground hover:bg-background/90 h-12 px-7"
                 >
                   <Link href="/contact">
-                    Start a project <ArrowRight className="h-4 w-4" />
+                    Book Free Consultation <ArrowRight className="h-4 w-4" />
                   </Link>
                 </Button>
                 <Button
