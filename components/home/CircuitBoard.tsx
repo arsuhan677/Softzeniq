@@ -2,19 +2,33 @@
 import { useEffect, useRef, useState } from "react";
 
 const CircuitBoard = ({ children }: { children: React.ReactNode }) => {
-  const canvasRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-  const circuitNodesRef = useRef([]);
-  const circuitPathsRef = useRef([]);
-  const animationRef = useRef(null);
+  const circuitNodesRef = useRef<
+    {
+      x: number;
+      y: number;
+      size: number;
+      isActive: boolean;
+      activationLevel: number;
+    }[]
+  >([]);
+  const circuitPathsRef = useRef<
+    { from: number; to: number; isActive: boolean; activationLevel: number }[]
+  >([]);
+  const animationRef = useRef<number | null>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-
     const handleResize = () => {
-      const { innerWidth, innerHeight, devicePixelRatio = 1 } = window;
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+
+      const innerWidth = window.innerWidth;
+      const innerHeight = window.innerHeight;
+      const devicePixelRatio = window.devicePixelRatio || 1;
 
       canvas.width = innerWidth * devicePixelRatio;
       canvas.height = innerHeight * devicePixelRatio;
@@ -28,7 +42,7 @@ const CircuitBoard = ({ children }: { children: React.ReactNode }) => {
       generateCircuit(innerWidth, innerHeight);
     };
 
-    const generateCircuit = (width, height) => {
+    const generateCircuit = (width: number, height: number) => {
       const nodeCount = width < 768 ? 30 : 50;
       const nodes = [];
       const gridSize = Math.sqrt(nodeCount);
@@ -54,7 +68,12 @@ const CircuitBoard = ({ children }: { children: React.ReactNode }) => {
         }
       }
 
-      const paths = [];
+      const paths: {
+        from: number;
+        to: number;
+        isActive: boolean;
+        activationLevel: number;
+      }[] = [];
       for (let i = 0; i < nodes.length; i++) {
         const node = nodes[i];
         const connections = findClosestNodes(
@@ -83,7 +102,11 @@ const CircuitBoard = ({ children }: { children: React.ReactNode }) => {
       circuitPathsRef.current = paths;
     };
 
-    const findClosestNodes = (node, nodes, count) => {
+    const findClosestNodes = (
+      node: { x: number; y: number },
+      nodes: { x: number; y: number }[],
+      count: number,
+    ) => {
       const distances = nodes.map((n, index) => {
         const dx = node.x - n.x;
         const dy = node.y - n.y;
@@ -107,8 +130,10 @@ const CircuitBoard = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      const rect = canvasRef.current.getBoundingClientRect();
+    const handleMouseMove = (e: MouseEvent) => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       setMousePosition({ x, y });
@@ -122,7 +147,9 @@ const CircuitBoard = ({ children }: { children: React.ReactNode }) => {
     if (!dimensions.width) return;
 
     const canvas = canvasRef.current;
+    if (!canvas) return;
     const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
     const animate = () => {
       ctx.clearRect(0, 0, dimensions.width, dimensions.height);

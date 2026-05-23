@@ -48,7 +48,7 @@ export default function Contact() {
 
   return (
     <>
-      <section className="relative pt-40 pb-12 overflow-hidden">
+      <section className="relative pt-20 sm:pt-30 pb-12 overflow-hidden">
         <GridBackdrop />
         <div className="max-w-4xl mx-auto px-5 sm:px-8 text-center">
           <Reveal>
@@ -68,10 +68,10 @@ export default function Contact() {
       </section>
 
       <section className="pb-24">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 grid lg:grid-cols-[1fr_1.4fr] gap-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-4 sm:gap-6">
           {/* Info */}
           <Reveal>
-            <div className="glass rounded-2xl p-7 h-full flex flex-col gap-5">
+            <div className="glass rounded-2xl p-5 sm:p-7 h-full flex flex-col gap-5">
               <h3 className="font-display text-xl font-semibold">
                 Reach us directly
               </h3>
@@ -104,12 +104,11 @@ export default function Contact() {
               >
                 <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
               </a>
-              <div className="mt-2 rounded-xl overflow-hidden border border-border h-44">
+              <div className="mt-2 rounded-xl overflow-hidden border border-border w-full h-44 sm:h-56">
                 <iframe
                   title="Map"
                   src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2945.2457475868355!2d90.38816607431781!3d23.878821978582998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjPCsDUyJzQzLjgiTiA5MMKwMjMnMjYuNyJF!5e1!3m2!1sen!2sbd!4v1779552441092!5m2!1sen!2sbd"
-                  width="600"
-                  height="450"
+                  className="w-full h-full"
                   loading="lazy"
                 ></iframe>
               </div>
@@ -118,7 +117,7 @@ export default function Contact() {
 
           {/* Form */}
           <Reveal delay={0.1}>
-            <div className="glass rounded-2xl p-7">
+            <div className="glass rounded-2xl p-5 sm:p-7">
               {sent ? (
                 <div className="py-16 text-center">
                   <div className="mx-auto h-14 w-14 rounded-full bg-gradient-brand grid place-items-center shadow-glow">

@@ -3,7 +3,7 @@ import { Reveal } from "@/components/shared/Revel";
 
 export default function PortfolioHeader() {
   return (
-    <section className="relative pt-40 pb-12 overflow-hidden">
+    <section className="relative pt-20 sm:pt-30 pb-12 overflow-hidden">
       <GridBackdrop />
       <div className="max-w-4xl mx-auto px-5 sm:px-8 text-center">
         <Reveal>
