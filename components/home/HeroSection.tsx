@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import CircuitBoard from "./CircuitBoard";
 // import {IoChevronForward} from "react-icons/io5";
 // import CircuitBoard from "./CircuitBoard.jsx"
@@ -18,8 +18,9 @@ export default function HeroSection() {
           transition={{ duration: 0.6 }}
           className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs font-medium text-muted-foreground mb-6 "
         >
-          <Sparkles className="h-3.5 w-3.5 text-primary" />
-          Trusted by startups in 14+ countries
+          {" "}
+          <span className="h-1.5 w-1.5 rounded-full bg-gradient-brand" />
+          Global IT Solutions Partner
         </motion.div>
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
