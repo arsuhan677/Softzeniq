@@ -250,8 +250,11 @@ const CircuitBoard = ({ children }: { children: React.ReactNode }) => {
   }, [dimensions, mousePosition]);
 
   return (
-    <div className="relative w-full min-h-[500px] flex items-center justify-center flex-col overflow-hidden rounded-high ">
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-10" />
+    <div className="relative w-full min-h-[600px]  flex items-center justify-center flex-col overflow-hidden rounded-high ">
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 pt-16 w-full h-full z-10"
+      />
       <div
         className="absolute inset-0 relative-15"
         style={{ background: "var(--gradient-hero)" }}

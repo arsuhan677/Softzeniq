@@ -5,7 +5,7 @@ import WhyUs from "@/components/about/WhyUs";
 
 export default function about() {
   return (
-    <div className="flex flex-col flex-1 w-full items-center justify-center mt-14 sm:mt-18">
+    <div className="flex flex-col flex-1 w-full items-center justify-center ">
       <AboutHero />
       <MissionVision />
       <NarrationStory />

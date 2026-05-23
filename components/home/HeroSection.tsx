@@ -11,7 +11,7 @@ import { Button } from "../ui/button";
 export default function HeroSection() {
   return (
     <CircuitBoard>
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 text-center relative z-20 ">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 pt-20 pb-10 text-center relative z-20 ">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
