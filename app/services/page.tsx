@@ -1,9 +1,13 @@
-import Services from "@/components/service/Service";
+import PricingSection from "@/components/service/PricingSection";
+import ServiceGrid from "@/components/service/ServiceGrid";
+import ServiceHeader from "@/components/service/ServiceHeader";
 
 export default function page() {
   return (
     <div>
-      <Services />
+      <ServiceHeader />
+      <ServiceGrid />
+      <PricingSection />
     </div>
   );
 }
