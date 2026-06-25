@@ -21,9 +21,15 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "SoftZeniq — Build. Scale. Transform.",
+  title: "SoftZeniq It— Build. Scale. Transform.",
   description:
     "Premium IT solutions and software agency. Web, mobile, custom software, UI/UX, SEO and growth for startups and businesses worldwide.",
+
+  icons: {
+    icon: "/public/images/logo.png",
+    shortcut: "/public/images/logo.png",
+    apple: "/public/images/logo.png",
+  },
 };
 
 export default function RootLayout({
