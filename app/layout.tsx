@@ -21,14 +21,69 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "SoftZeniq It— Build. Scale. Transform.",
+  metadataBase: new URL("https://softzeniqit.xyz"),
+  title: {
+    default: "SoftZeniq | Build. Scale. Transform.",
+    template: "%s | SoftZeniq",
+  },
   description:
-    "Premium IT solutions and software agency. Web, mobile, custom software, UI/UX, SEO and growth for startups and businesses worldwide.",
-
+    "Premium IT solutions and software agency. We build and scale custom web apps, mobile apps, bespoke software, UI/UX, and SEO strategy for startups and brands worldwide.",
+  keywords: [
+    "software agency",
+    "web development",
+    "mobile app development",
+    "UI/UX design",
+    "custom software",
+    "SEO optimization",
+    "SoftZeniq",
+    "tech agency"
+  ],
+  authors: [{ name: "SoftZeniq Team", url: "https://softzeniqit.xyz" }],
+  creator: "SoftZeniq",
+  publisher: "SoftZeniq",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://softzeniqit.xyz",
+    title: "SoftZeniq | Premium Web & Software Development Agency",
+    description: "Premium IT solutions and software agency. We build and scale custom web apps, mobile apps, bespoke software, UI/UX, and SEO strategy for startups and brands worldwide.",
+    siteName: "SoftZeniq IT",
+    images: [
+      {
+        url: "/images/logo2.png",
+        width: 1200,
+        height: 630,
+        alt: "SoftZeniq - Build. Scale. Transform.",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SoftZeniq | Premium Web & Software Development Agency",
+    description: "Premium IT solutions and software agency. We build and scale custom web apps, mobile apps, bespoke software, UI/UX, and SEO strategy for startups and brands worldwide.",
+    images: ["/images/logo2.png"],
+    creator: "@softzeniq",
+  },
   icons: {
-    icon: "/public/images/logo.png",
-    shortcut: "/public/images/logo.png",
-    apple: "/public/images/logo.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/images/logo.png", type: "image/png", sizes: "192x192" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/images/logo.png", sizes: "180x180", type: "image/png" },
+    ],
   },
 };
 
