@@ -11,13 +11,13 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "northwind-saas",
-    title: "Northwind Analytics",
-    category: "SaaS",
-    client: "Northwind",
-    summary: "Multi-tenant analytics platform for B2B logistics teams.",
+    slug: "",
+    title: "Dream Vision",
+    category: "Web",
+    client: "Dream Vision",
+    summary: "medical equipment ",
     result: "+312% trial-to-paid conversion",
-    tags: ["Next.js", "Postgres", "Stripe"],
+    tags: ["Next.js", "Typescript", "Supabase","TailwindCss"],
     gradient: "from-[oklch(0.6_0.22_250)] to-[oklch(0.55_0.24_290)]",
   },
   {
