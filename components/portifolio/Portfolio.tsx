@@ -5,7 +5,7 @@ export default function Portfolio() {
   return (
     <>
       <PortfolioHeader />
-      <PortfolioCatalog />
+      <PortfolioCatalog projects={[]} />
     </>
   );
 }

@@ -45,7 +45,9 @@ export default async function Portfolio() {
       gradient: "linear-gradient(to bottom right, #a855f7, #ec4899)",
       link: "#",
       show_on_home: true,
-      created_at: new Date().toISOString()
+      created_at: new Date().toISOString(),
+      client: "Softzeniq",
+      tags: ["Mobile", "Design"]
     },
     {
       id: "fallback-2",
@@ -58,7 +60,9 @@ export default async function Portfolio() {
       gradient: "linear-gradient(to bottom right, #3b82f6, #8b5cf6)",
       link: "#",
       show_on_home: true,
-      created_at: new Date().toISOString()
+      created_at: new Date().toISOString(),
+      client: "Softzeniq",
+      tags: ["SaaS", "Web"]
     },
     {
       id: "fallback-3",
@@ -71,7 +75,9 @@ export default async function Portfolio() {
       gradient: "linear-gradient(to right, #ec4899, #f43f5e)",
       link: "#",
       show_on_home: true,
-      created_at: new Date().toISOString()
+      created_at: new Date().toISOString(),
+      client: "Softzeniq",
+      tags: ["E-commerce", "Shopify"]
     }
   ];
 

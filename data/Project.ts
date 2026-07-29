@@ -1,16 +1,22 @@
 export type Project = {
+  id: string;
   slug: string;
   title: string;
-  category: "Web" | "SaaS" | "E-commerce" | "Mobile";
+  category: "Web" | "SaaS" | "E-commerce" | "Mobile" | string;
   client: string;
   summary: string;
   result: string;
   tags: string[];
   gradient: string;
+  link?: string;
+  image_url?: string;
+  show_on_home?: boolean;
+  created_at?: string;
 };
 
 export const projects: Project[] = [
   {
+    id: "1",
     slug: "",
     title: "Dream Vision",
     category: "Web",
@@ -21,6 +27,7 @@ export const projects: Project[] = [
     gradient: "from-[oklch(0.6_0.22_250)] to-[oklch(0.55_0.24_290)]",
   },
   {
+    id: "2",
     slug: "aurora-store",
     title: "Aurora Apparel",
     category: "E-commerce",
@@ -31,6 +38,7 @@ export const projects: Project[] = [
     gradient: "from-[oklch(0.6_0.22_295)] to-[oklch(0.55_0.2_330)]",
   },
   {
+    id: "3",
     slug: "lumen-marketing",
     title: "Lumen AI",
     category: "Web",
@@ -41,6 +49,7 @@ export const projects: Project[] = [
     gradient: "from-[oklch(0.62_0.22_250)] to-[oklch(0.58_0.22_270)]",
   },
   {
+    id: "4",
     slug: "pulse-mobile",
     title: "Pulse Fitness",
     category: "Mobile",
@@ -51,6 +60,7 @@ export const projects: Project[] = [
     gradient: "from-[oklch(0.65_0.2_180)] to-[oklch(0.58_0.22_240)]",
   },
   {
+    id: "5",
     slug: "ledger-saas",
     title: "Ledger Cloud",
     category: "SaaS",
@@ -61,6 +71,7 @@ export const projects: Project[] = [
     gradient: "from-[oklch(0.58_0.22_270)] to-[oklch(0.62_0.24_310)]",
   },
   {
+    id: "6",
     slug: "kindred-store",
     title: "Kindred Goods",
     category: "E-commerce",
