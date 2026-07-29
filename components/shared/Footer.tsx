@@ -2,13 +2,17 @@
 import { Check, Mail, Send } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { FaGithub, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import Logo from "../../public/images/logo2.png";
 
-export default function Footer() {
+export default function Footer({ customLogoUrl }: { customLogoUrl?: string | null }) {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/softzeniq")) return null;
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,12 +26,16 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 py-6 sm:py-16 grid gap-6 md:gap-12 grid-cols-2 lg:grid-cols-6">
         {/* Brand */}
         <div className="col-span-2 space-y-4">
-          <Image
-            src={Logo}
-            alt="SoftZeniq Logo"
-            loading="eager"
-            className="h-10 w-auto"
-          />
+          {customLogoUrl ? (
+            <img src={customLogoUrl} alt="SoftZeniq Logo" className="h-10 w-auto object-contain" />
+          ) : (
+            <Image
+              src={Logo}
+              alt="SoftZeniq Logo"
+              loading="eager"
+              className="h-10 w-auto"
+            />
+          )}
           <p className="text-sm text-muted-foreground max-w-sm">
             SoftZeniq builds premium digital products for startups and
             businesses worldwide — from web and mobile to custom software and

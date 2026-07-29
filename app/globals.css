@@ -137,6 +137,15 @@
     border-color: var(--color-border);
     @apply border-border outline-ring/50;
   }
+  button {
+    cursor: pointer;
+  }
+  .container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1280px; /* equivalent to max-w-7xl or traditional container */
+  }
   html {
     scroll-behavior: smooth;
     @apply font-sans;

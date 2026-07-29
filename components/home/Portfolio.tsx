@@ -1,15 +1,86 @@
-import { projects } from "@/data/Project";
+import { supabase } from "@/lib/supabase";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Reveal } from "../shared/Revel";
 import { SectionHeading } from "../shared/SectionHeading";
 import { Button } from "../ui/button";
 
-export default function Portfolio() {
+function getGradientStyle(gradient: string) {
+  // Use safe HEX colors that work in all browsers
+  const fallback = "linear-gradient(135deg, #4f46e5, #ec4899)";
+  if (!gradient) return fallback;
+
+  if (gradient.startsWith("from-[")) {
+    const colors = gradient.match(/\[(.*?)\]/g)?.map((c) => c.slice(1, -1).replace(/_/g, " "));
+    if (colors && colors.length >= 2) {
+      return `linear-gradient(135deg, ${colors[0]}, ${colors[1]})`;
+    }
+  }
+
+  // If it's dummy text (no valid color keywords), use fallback
+  if (!gradient.includes("gradient") && !gradient.includes("#") && !gradient.includes("rgb") && !gradient.includes("hsl") && !gradient.includes("oklch")) {
+    return fallback;
+  }
+
+  return gradient;
+}
+
+export default async function Portfolio() {
+  const { data: projectsData } = await supabase
+    .from("projects")
+    .select("*")
+    .eq("show_on_home", true)
+    .order("created_at", { ascending: false })
+    .limit(3);
+
+  const fallbackProjects = [
+    {
+      id: "fallback-1",
+      slug: "mobile-app-1",
+      title: "Adipisicing exercita",
+      summary: "Distinctio Molestia",
+      result: "Voluptatibus sed nem",
+      category: "Mobile",
+      image_url: "https://images.unsplash.com/photo-1542393545-10f5cde2c810?q=80&w=1000&auto=format&fit=crop", // Elephant image to match screenshot
+      gradient: "linear-gradient(to bottom right, #a855f7, #ec4899)",
+      link: "#",
+      show_on_home: true,
+      created_at: new Date().toISOString()
+    },
+    {
+      id: "fallback-2",
+      slug: "saas-app-1",
+      title: "In repudiandae animals",
+      summary: "Qui ex ullam omnis a",
+      result: "Reprehenderit cumque",
+      category: "SaaS",
+      image_url: "https://images.unsplash.com/photo-1542393545-10f5cde2c810?q=80&w=1000&auto=format&fit=crop",
+      gradient: "linear-gradient(to bottom right, #3b82f6, #8b5cf6)",
+      link: "#",
+      show_on_home: true,
+      created_at: new Date().toISOString()
+    },
+    {
+      id: "fallback-3",
+      slug: "ecommerce-1",
+      title: "Sit illo magnam mole",
+      summary: "Ut ratione beatae eu",
+      result: "Dignissimos maxime e",
+      category: "E-commerce",
+      image_url: "https://images.unsplash.com/photo-1542393545-10f5cde2c810?q=80&w=1000&auto=format&fit=crop",
+      gradient: "linear-gradient(to right, #ec4899, #f43f5e)",
+      link: "#",
+      show_on_home: true,
+      created_at: new Date().toISOString()
+    }
+  ];
+
+  const displayProjects = projectsData && projectsData.length > 0 ? projectsData : fallbackProjects;
+
   return (
     <div>
       <section className="relative py-12 sm:py-16">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8">
+        <div className="max-w-[1536px] mx-auto px-5 sm:px-8 xl:px-12">
           <SectionHeading
             eyebrow="Recent work"
             title={
@@ -19,15 +90,24 @@ export default function Portfolio() {
               </>
             }
           />
-          <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {projects.slice(0, 3).map((p, i) => (
-              <Reveal key={p.slug} delay={i * 0.05}>
-                <div className="group rounded-2xl overflow-hidden glass">
+          <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
+            {displayProjects.map((p, i) => {
+              const InnerContent = (
+                <>
                   <div
-                    className={`aspect-[4/3] bg-gradient-to-br ${p.gradient} relative`}
+                    className="aspect-[4/3] relative overflow-hidden group/image"
+                    style={{ background: getGradientStyle(p.gradient) }}
                   >
-                    <div className="absolute inset-0 grid-bg opacity-30" />
-                    <div className="absolute top-4 left-4 rounded-full glass px-3 py-1 text-xs">
+                    {p.image_url && (
+                      <img
+                        src={p.image_url}
+                        alt={p.title}
+                        className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-overlay group-hover/image:opacity-100 group-hover/image:mix-blend-normal transition-all duration-500"
+                        loading="lazy"
+                      />
+                    )}
+                    <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" />
+                    <div className="absolute top-4 left-4 rounded-full glass px-3 py-1 text-xs z-10">
                       {p.category}
                     </div>
                   </div>
@@ -40,9 +120,28 @@ export default function Portfolio() {
                       {p.result}
                     </p>
                   </div>
-                </div>
-              </Reveal>
-            ))}
+                </>
+              );
+
+              return (
+                <Reveal key={p.slug} delay={i * 0.05} className="w-full">
+                  {p.link ? (
+                    <Link
+                      href={p.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group rounded-2xl overflow-hidden glass block w-full"
+                    >
+                      {InnerContent}
+                    </Link>
+                  ) : (
+                    <div className="group rounded-2xl overflow-hidden glass w-full">
+                      {InnerContent}
+                    </div>
+                  )}
+                </Reveal>
+              );
+            })}
           </div>
           <div className="mt-10 text-center">
             <Button asChild variant="glass" size="lg">

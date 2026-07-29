@@ -3,46 +3,20 @@ import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import Link from "next/link";
+import { supabase } from "@/lib/supabase";
 
-const tiers = [
-  {
-    name: "Launch",
-    price: "$4.9k",
-    period: "/ project",
-    desc: "Marketing site or MVP in 2–3 weeks.",
-    features: ["Up to 6 pages", "Design + build", "SEO setup", "Analytics"],
-    cta: "Start small",
-  },
-  {
-    name: "Scale",
-    price: "$14k",
-    period: "/ month",
-    desc: "Embedded product team for growing companies.",
-    features: [
-      "Dedicated team",
-      "Weekly releases",
-      "Design + eng + growth",
-      "Priority Slack",
-    ],
-    highlight: true,
-    cta: "Most popular",
-  },
-  {
-    name: "Enterprise",
-    price: "Custom",
-    period: "",
-    desc: "Complex platforms with SLAs and dedicated infra.",
-    features: [
-      "SOC 2 ready",
-      "99.99% uptime",
-      "Dedicated PM",
-      "Quarterly roadmap",
-    ],
-    cta: "Let's talk",
-  },
-];
+export default async function PricingSection() {
+  const { data: dbPlans } = await supabase
+    .from("pricing_plans")
+    .select("*")
+    .order("created_at", { ascending: true });
 
-export default function PricingSection() {
+  const tiers = dbPlans || [];
+
+  if (tiers.length === 0) {
+    return null;
+  }
+
   return (
     <section className="py-24">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
@@ -83,7 +57,7 @@ export default function PricingSection() {
                   {tier.desc}
                 </p>
                 <ul className="mt-6 space-y-2 flex-1">
-                  {tier.features.map((feature) => (
+                  {tier.features?.map((feature: string) => (
                     <li key={feature} className="flex gap-2 text-sm">
                       <Check
                         className={`h-4 w-4 shrink-0 mt-0.5 ${tier.highlight ? "text-primary-foreground" : "text-primary"}`}

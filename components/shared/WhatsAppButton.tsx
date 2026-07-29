@@ -1,8 +1,13 @@
 "use client";
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export function WhatsAppButton() {
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/softzeniq")) return null;
+
   return (
     <motion.a
       initial={{ opacity: 0, scale: 0 }}

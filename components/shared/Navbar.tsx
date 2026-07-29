@@ -16,7 +16,7 @@ const links = [
   { to: "/contact", label: "Contact" },
 ] as const;
 
-export function Navbar() {
+export function Navbar({ customLogoUrl }: { customLogoUrl?: string | null }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   // const { pathname } = useLocation();
@@ -31,16 +31,21 @@ export function Navbar() {
 
   //   useEffect(() => setOpen(false), [pathname]);
 
+  if (pathname.startsWith("/softzeniq")) return null;
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-strong py-3" : "py-2 sm:py-4 bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-30 transition-all duration-300 ${scrolled ? "glass-strong py-3" : "py-2 sm:py-4 bg-transparent"
+        }`}
     >
       <div className=" md:max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
         {/* <Logo /> */}
         <Link href="/" className="flex items-center h-10 w-16 md:h-12 md:w-22">
-          <Image src={Logo} alt="Softzeniq Logo" width={500} height={500} />
+          {customLogoUrl ? (
+            <img src={customLogoUrl} alt="Softzeniq Logo" className="w-full h-full object-contain" />
+          ) : (
+            <Image src={Logo} alt="Softzeniq Logo" width={700} height={700} />
+          )}
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
@@ -50,11 +55,10 @@ export function Navbar() {
               <Link
                 key={l.to}
                 href={l.to}
-                className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
-                  active
-                    ? "text-foreground bg-accent/50"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
+                className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${active
+                  ? "text-foreground bg-accent/50"
+                  : "text-muted-foreground hover:text-foreground"
+                  }`}
               >
                 {l.label}
               </Link>

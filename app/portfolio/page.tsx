@@ -12,12 +12,20 @@ export const metadata: Metadata = {
   }
 };
 
-export default function page() {
+import { supabase } from "@/lib/supabase";
+
+export default async function page() {
+  const { data: projectsData } = await supabase
+    .from("projects")
+    .select("*")
+    .order("created_at", { ascending: false });
+
+  const projects = projectsData || [];
+
   return (
     <div>
       <PortfolioHeader />
-      <PortfolioCatalog />
+      <PortfolioCatalog projects={projects} />
     </div>
   );
 }
-
